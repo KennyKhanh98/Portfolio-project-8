@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+header {
+  padding: 30px;
+}
+
+h1  {
+  text-transform: uppercase;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.search-box {
+  width: 38%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.container {
+  padding: 30px;
+}
+
+.user-card {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "image name"
+    "image email"
+    "image city";
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.user-image {
+  grid-area: image;
+}
+.user-name {
+  grid-area: name;
+}
+.user-email {
+  grid-area: email;
+}
+.user-city {
+  grid-area: city;
+}
