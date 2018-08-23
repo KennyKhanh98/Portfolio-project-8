@@ -9,7 +9,7 @@ const card = document.getElementsByClassName('user-card');
 //  FETCH FUNCTIONS
 // ------------------------------------------
 
-fetch('https://randomuser.me/api/?results=12&inc=picture,name,gender,nat,location,dob,email')
+fetch('https://randomuser.me/api/?results=12&nat=ca&inc=name,email,location,picture,cell,dob')
   .then(response => response.json())
   .then(data => generateUsers(data.results))
 
@@ -18,15 +18,21 @@ fetch('https://randomuser.me/api/?results=12&inc=picture,name,gender,nat,locatio
 // ------------------------------------------
 
 function generateUsers(data) {
-  data.forEach(user => {
+  for (let i = 0; i < data.length; i++) {
+    const user = data[i];
     const html = `
-      <img class="user-image" src='${user.picture}' alt>
-      <h2 class="user-name">${user.name.first} + ${user.name.last}</h2>
-      <p class="user-email">${user.email}</p>
-      <p class="user-city">${user.location.city}</p>
+      <div class="user-card">
+        <img class="user-image" src='${user.picture.medium}' alt>
+        <div class="info">
+          <h2 class="user-name">${user.name.first} ${user.name.last}</h2>
+          <p class="user-email">${user.email}</p>
+          <p class="user-city">${user.location.city}</p>
+        </div>
+      </div>
     `;
-    card.innerHTML = html;
-  });
+    main[i].innerHTML += html;
+
+  }
 }
 
 

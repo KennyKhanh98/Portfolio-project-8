@@ -23,31 +23,33 @@ img {
 }
 
 .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   padding: 30px;
 }
 
 .user-card {
   display: grid;
-  grid-template-columns: 60px 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 90px 1fr;
+  grid-template-rows: 1fr;
   grid-template-areas:
-    "image name"
-    "image email"
-    "image city";
+    "image info";
   border: 1px solid black;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
 }
-
 .user-image {
   grid-area: image;
+  margin: auto 0;
+}
+.info {
+  grid-area: info;
 }
 .user-name {
-  grid-area: name;
+  font-size: 1.2em;
 }
-.user-email {
-  grid-area: email;
-}
-.user-city {
-  grid-area: city;
+.user-email, .user-city {
+  font-size: .9em;
+  color: lightgrey;
 }
