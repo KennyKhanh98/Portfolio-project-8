@@ -30,7 +30,7 @@ function generateUsers(data) {
         </div>
       </div>
     `;
-    main[i].innerHTML += html;
+    main[0].innerHTML += html;
 
   }
 }
