@@ -39,53 +39,41 @@ function generateUsers(data) {
     // Generating user modals when is clicked
     for (let i = 0; i < card.length; i++) {
       card[i].addEventListener('click', function() {
-        createModals(data[i]);
+        createModals(data[i], i);
       });
     }
   }
 }
 
-function createModals(data) {
-    const user = data;
-    const html = `
-      <div class="user">
-        <span class="exit-button">&#935;</span>
-        <div class="overlay">
-          <span class="left-button">&lt;</span>
-          <div class="user-info">
-            <img class="user-image" src='${user.picture.large}' alt>
-            <h2 class="user-name">${user.name.first} ${user.name.last}</h2>
-            <p class="user-email">${user.email}</p>
-            <p class="user-city">${user.location.city}</p>
-            <hr>
-            <p class="user-phone">${user.cell}</p>
-            <p class="user-address">${user.location.street}, ${user.location.state} ${user.location.postcode}</p>
-            <p class="date-of-birth">DoB: ${user.dob.date.substring(5,7)}/${user.dob.date.substring(8,10)}/${user.dob.date.substring(0,4)}</p>
-          </div>
-          <span class="right-button">&gt;</span>
+function createModals(data, index) {
+  const user = data;
+  const html = `
+    <div class="user">
+      <div class="overlay">
+        <span class="left-button">&lt;</span>
+        <div class="user-info">
+          <span class="exit-button">&#935;</span>
+          <img class="user-image" src='${user.picture.large}' alt>
+          <h2 class="user-name">${user.name.first} ${user.name.last}</h2>
+          <p class="user-email">${user.email}</p>
+          <p class="user-city">${user.location.city}</p>
+          <hr>
+          <p class="user-phone">${user.cell}</p>
+          <p class="user-address">${user.location.street}, ${user.location.state} ${user.location.postcode}</p>
+          <p class="date-of-birth">DoB: ${user.dob.date.substring(5,7)}/${user.dob.date.substring(8,10)}/${user.dob.date.substring(0,4)}</p>
         </div>
+        <span class="right-button">&gt;</span>
       </div>
-    `;
-    main_modals[0].innerHTML += html;
+    </div>
+  `;
+  main_modals[0].innerHTML = html;
+  const userInfo = document.querySelector('.user');
+  userInfo.style.display = "block";
+  exit.addEventListener('click', function() {
+    userInfo.style.display = "none";
+  });
 }
 
 // ------------------------------------------
 //  EVENT LISTENERS
 // ------------------------------------------
-
-// function addEvent() {
-//   for (let i = 0; i < randomUser.length; i++) {
-//     const container = main[0];
-//     const userInfo = randomUser[i];
-//     const close = exit[i];
-//     const slideNext = next[i];
-//     const slideBack = previous[i];
-//     close.addEventListener('click', function() {
-//       userInfo.style.display = "none";
-//     })
-//     container.addEventListener('click', function() {
-//       userInfo.style.display = "block";
-//     })
-//
-//   }
-// }
