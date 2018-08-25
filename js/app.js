@@ -35,7 +35,7 @@ function generateUsers(data) {
     for (let i = 0; i < card.length; i++) {
       card[i].addEventListener('click', function() {
         createModals(data[i], i);
-        
+
         const next = document.querySelector('.right-button');
         const previous = document.querySelector('.left-button');
         // next user
