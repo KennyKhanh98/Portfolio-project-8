@@ -34,25 +34,30 @@ function generateUsers(data) {
     // Generating user modals when is clicked
     for (let i = 0; i < card.length; i++) {
       card[i].addEventListener('click', function() {
-        createModals(data[i], i);
-
-        const next = document.querySelector('.right-button');
-        const previous = document.querySelector('.left-button');
-        // next user
-        next.addEventListener('click', function() {
-          createModals(data[i+1], i+1);
-        });
-        // previous user
-        previous.addEventListener('click', function() {
-          createModals(data[i-1], i-1);
+        card[i].addEventListener('click', function() {
+        bindModal(data, i);
         });
       });
     }
   }
 }
 
+function bindModal(data, index) {
+  createModals(data, index);
+  const next = document.querySelector('.right-button');
+  const previous = document.querySelector('.left-button');
+  // next user
+  next.addEventListener('click', function() {
+    bindModal(data, index+1);
+  });
+  // previous user
+  previous.addEventListener('click', function() {
+    bindModal(data, index-1);
+  });
+}
+
 function createModals(data, index) {
-  const user = data;
+  const user = data[index];
   const html = `
     <div class="user">
       <div class="overlay">
