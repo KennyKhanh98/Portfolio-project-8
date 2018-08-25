@@ -35,6 +35,17 @@ function generateUsers(data) {
     for (let i = 0; i < card.length; i++) {
       card[i].addEventListener('click', function() {
         createModals(data[i], i);
+        
+        const next = document.querySelector('.right-button');
+        const previous = document.querySelector('.left-button');
+        // next user
+        next.addEventListener('click', function() {
+          createModals(data[i+1], i+1);
+        });
+        // previous user
+        previous.addEventListener('click', function() {
+          createModals(data[i-1], i-1);
+        });
       });
     }
   }
@@ -62,10 +73,9 @@ function createModals(data, index) {
     </div>
   `;
   main_modals[0].innerHTML = html;
+
   const userInfo = document.querySelector('.user');
   const exit = document.querySelector('.exit-button');
-  const next = document.querySelector('.right-button');
-  const previous = document.querySelector('.left-button');
 
   // display overlay
   userInfo.style.display = "block";
@@ -73,14 +83,5 @@ function createModals(data, index) {
   // close overlay
   exit.addEventListener('click', function() {
     userInfo.style.display = "none";
-  });
-
-  // next user
-  next.addEventListener('click', function() {
-    userInfo[index+1].style.display = "block";
-  });
-  // previous user
-  previous.addEventListener('click', function() {
-    userInfo[index-1].style.display = "block";
   });
 }

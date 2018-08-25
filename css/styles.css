@@ -39,10 +39,14 @@ img {
   text-align: center;
 }
 .user-card {
+  transition: background-color .5s;
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
   margin: 5px;
+}
+.user-card:hover {
+  background-color: powderblue;
 }
 .user-name {
   font-size: 1.2em;
