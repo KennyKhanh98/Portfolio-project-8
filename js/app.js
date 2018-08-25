@@ -1,4 +1,5 @@
 const main = document.getElementsByClassName('container');
+const main_modals = document.getElementsByClassName('modal-container');
 const overlays = document.getElementsByClassName('overlay');
 const card = document.getElementsByClassName('user-card');
 const randomUser = document.querySelectorAll('.user');
@@ -38,15 +39,14 @@ function generateUsers(data) {
     // Generating user modals when is clicked
     for (let i = 0; i < card.length; i++) {
       card[i].addEventListener('click', function() {
-        console.log(data[i]);
+        createModals(data[i]);
       });
     }
   }
 }
 
-function creatModals(data) {
-  for (let i = 0; i < data.length; i++) {
-    const user = data[i];
+function createModals(data) {
+    const user = data;
     const html = `
       <div class="user">
         <span class="exit-button">&#935;</span>
@@ -66,12 +66,8 @@ function creatModals(data) {
         </div>
       </div>
     `;
-    main[0].innerHTML += html;
+    main_modals[0].innerHTML += html;
   }
-}
-
-function creatOverlay(index) {
-
 }
 
 // ------------------------------------------
