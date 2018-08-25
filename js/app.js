@@ -34,9 +34,7 @@ function generateUsers(data) {
     // Generating user modals when is clicked
     for (let i = 0; i < card.length; i++) {
       card[i].addEventListener('click', function() {
-        card[i].addEventListener('click', function() {
         bindModal(data, i);
-        });
       });
     }
   }
