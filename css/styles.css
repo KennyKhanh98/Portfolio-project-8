@@ -1,3 +1,6 @@
+/* =====================================
+   Page Styles
+======================================== */
 * {
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
@@ -5,6 +8,7 @@
 
 header {
   padding: 30px;
+  text-align: left;
 }
 
 h1  {
@@ -16,36 +20,29 @@ img {
   border-radius: 50%;
 }
 
+/* =====================================
+   Header
+======================================== */
 .search-box {
-  width: 38%;
+  width: 100%;
   padding: 10px;
   border-radius: 10px;
 }
 
+/* =====================================
+   Main Content
+======================================== */
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   padding: 30px;
+  text-align: center;
 }
-
 .user-card {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas:
-    "image info";
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
   margin: 5px;
-}
-.user-image {
-  grid-area: image;
-  margin: auto 0;
-}
-.info {
-  grid-area: info;
 }
 .user-name {
   font-size: 1.2em;
@@ -55,7 +52,7 @@ img {
   color: grey;
 }
 
-.overlay {
+.user {
   position: fixed;
   display: none;
   width: 100%;
@@ -67,26 +64,87 @@ img {
   background-color: rgba(0,0,0,0.5);
   cursor: pointer;
 }
-.modals {
+.overlay {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
-  margin: 50px auto;
+  margin: 60px auto;
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
-  width: 30%;
-  height: 70%;
+  width: 90%;
+  height: 75%;
   background-color: white;
 }
-.modals img {
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+.left-button, .right-button {
+  font-size: 3em;
+}
+.overlay img {
   width: 150px;
   height: 150px;
   margin: 0 auto;
 }
-.modals hr {
-  width: 80%;
+.overlay hr {
+  width: 100%;
 }
 .exit-button {
-  text-align: right;
+  font-size: 1.5em;
+  color: white;
+}
+
+/* =====================================
+   Media Queries
+======================================== */
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 30px;
+  }
+  .user-card {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "image info";
+  }
+  .overlay {
+    width: 50%;
+  }
+  .user-image {
+    grid-area: image;
+    margin: auto 0;
+    width: 100px;
+    height: 100px;
+  }
+  .info {
+    grid-area: info;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-box {
+    width: 50%;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .user-card {
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .overlay {
+    width: 30%;
+    height: 70%;
+  }
 }
