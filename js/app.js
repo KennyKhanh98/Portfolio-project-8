@@ -64,8 +64,8 @@ function createModals(data, index) {
   main_modals[0].innerHTML = html;
   const userInfo = document.querySelector('.user');
   const exit = document.querySelector('.exit-button');
-  const next = document.querySelector('right-button');
-  const previous = document.querySelector('left-button');
+  const next = document.querySelector('.right-button');
+  const previous = document.querySelector('.left-button');
 
   // display overlay
   userInfo.style.display = "block";
