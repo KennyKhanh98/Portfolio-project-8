@@ -67,7 +67,6 @@ function createModals(data) {
       </div>
     `;
     main_modals[0].innerHTML += html;
-  }
 }
 
 // ------------------------------------------
