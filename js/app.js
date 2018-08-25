@@ -36,9 +36,9 @@ function generateUsers(data) {
     main[0].innerHTML += html;
 
     // Generating user modals when is clicked
-    for (let i = 0; i < randomUser.length; i++) {
-      randomUser[i].addEventListener('click', function() {
-        createOverlay[i];
+    for (let i = 0; i < card.length; i++) {
+      card[i].addEventListener('click', function() {
+        console.log(data[i]);
       });
     }
   }
