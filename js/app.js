@@ -3,11 +3,6 @@ const main_modals = document.getElementsByClassName('modal-container');
 const overlays = document.getElementsByClassName('overlay');
 const card = document.getElementsByClassName('user-card');
 const randomUser = document.querySelectorAll('.user');
-const exit = document.getElementsByClassName('exit-button');
-const next = document.getElementsByClassName('right-button');
-const previous = document.getElementsByClassName('left-button');
-
-
 
 // ------------------------------------------
 //  FETCH FUNCTIONS
@@ -68,12 +63,24 @@ function createModals(data, index) {
   `;
   main_modals[0].innerHTML = html;
   const userInfo = document.querySelector('.user');
+  const exit = document.querySelector('.exit-button');
+  const next = document.querySelector('right-button');
+  const previous = document.querySelector('left-button');
+
+  // display overlay
   userInfo.style.display = "block";
+
+  // close overlay
   exit.addEventListener('click', function() {
     userInfo.style.display = "none";
   });
-}
 
-// ------------------------------------------
-//  EVENT LISTENERS
-// ------------------------------------------
+  // next user
+  next.addEventListener('click', function() {
+    userInfo[index+1].style.display = "block";
+  });
+  // previous user
+  previous.addEventListener('click', function() {
+    userInfo[index-1].style.display = "block";
+  });
+}
