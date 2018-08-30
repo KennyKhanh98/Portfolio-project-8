@@ -3,6 +3,8 @@ const main_modals = document.getElementsByClassName('modal-container');
 const overlays = document.getElementsByClassName('overlay');
 const card = document.getElementsByClassName('user-card');
 const randomUser = document.querySelectorAll('.user');
+const $search = $('#search');
+const $displayUser = $('.user-card');
 
 // ------------------------------------------
 //  FETCH FUNCTIONS
@@ -88,3 +90,21 @@ function createModals(data, index) {
     userInfo.style.display = "none";
   });
 }
+
+$search.on('keyup', function() {
+  const $input = $search.val().toLowerCase();
+  console.log($input);
+
+  $displayUser.each(function(index) {
+    const $name = $('h2').filter(".user-name").toLowerCase();
+    console.log($name);
+
+    if ($name.includes($input)) {
+      card.style.display = "flex";
+      console.log("found");
+    } else {
+      card.style.display = "none";
+      console.log("none");
+    }
+  });
+});
