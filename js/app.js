@@ -93,18 +93,15 @@ function createModals(data, index) {
 
 $search.on('keyup', function() {
   const $input = $search.val().toLowerCase();
-  console.log($input);
+  let displayUser = document.getElementsByClassName('user-name');
+  console.log(displayUser)
 
-  $displayUser.each(function(index) {
-    const $name = $('h2').filter(".user-name").toLowerCase();
-    console.log($name);
-
-    if ($name.includes($input)) {
-      card.style.display = "flex";
-      console.log("found");
+  for (let i = 0; i < displayUser.length; i++) {
+    const userText = displayUser[i].textContent;
+    if (userText.includes($input)) {
+      displayUser[i].parentNode.parentNode.style.display = "block";
     } else {
-      card.style.display = "none";
-      console.log("none");
+      displayUser[i].parentNode.parentNode.style.display = "none";
     }
-  });
+  }
 });
